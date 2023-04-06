@@ -15,8 +15,9 @@ function Header() {
     }
   }, [theme]);
   const handleToggleBtn = () => {
-    localStorage.theme = theme;
-    setTheme((currentTheme) => (currentTheme === "light" ? "dark" : "light"));
+    const newTheme = theme === "light" ? "dark" : "light"
+    localStorage.theme = newTheme;
+    setTheme(newTheme);
   };
   return (
     <header className="flex justify-around items-center p-3 bg-gray-200 dark:bg-gray-600 text-lg text-gray-800 dark:text-white font-bold">
