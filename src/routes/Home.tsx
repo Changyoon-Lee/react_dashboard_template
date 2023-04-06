@@ -1,6 +1,6 @@
 import DashBoard from "../components/DashBoard";
 
 function Home() {
-  return <DashBoard></DashBoard>;
+  return <DashBoard />;
 }
 export default Home;
