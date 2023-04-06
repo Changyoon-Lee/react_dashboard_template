@@ -1,8 +1,8 @@
-import React, { Suspense, lazy } from "react";
+import React, { Suspense, lazy, useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import logo from "./logo.svg";
-import "./App.css";
 import Layout from "./components/Layout";
+
+// dark mode 설정 관련, 이게 App 안에 있어야 하나..?
 
 const Home = lazy(() => import("./routes/Home"));
 function App() {
@@ -10,7 +10,7 @@ function App() {
     <BrowserRouter>
       <Suspense>
         <Routes>
-          <Route
+          <Route // route to Home page
             path="/"
             element={
               <Layout>
