@@ -15,7 +15,7 @@ function Header() {
     }
   }, [theme]);
   const handleToggleBtn = () => {
-    const newTheme = theme === "light" ? "dark" : "light"
+    const newTheme = theme === "light" ? "dark" : "light";
     localStorage.theme = newTheme;
     setTheme(newTheme);
   };
