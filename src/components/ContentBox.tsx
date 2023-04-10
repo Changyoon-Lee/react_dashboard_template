@@ -61,11 +61,11 @@ export default function ContentBox({ id, index, moveBox }: ContentBoxProps) {
     <div
       ref={connectDrop}
       style={{ opacity: isDragging ? 0.5 : 1 }}
-      className={styles.box}
+      className={`relative flex flex-col column row-span-${3} col-span-${3} bg-gray-300 rounded-xl shadow-md overflow-hidden`} //{styles.box} //
     >
       <div
         ref={connectDrag}
-        className="border border-blue-500"
+        className="bg-blue-500"
         data-handler-id={handlerId}
       >
         handler id 는 {handlerId?.toString()}, id는 {id} 입니다
