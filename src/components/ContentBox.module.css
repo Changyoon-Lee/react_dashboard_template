@@ -1,0 +1,11 @@
+.box {
+  position: relative;
+  padding-top: 0;
+  display: flex;
+  flex-flow: column;
+  grid-column: auto/span 3;
+  grid-row: auto/span 3;
+  transition: ease-in 180ms;
+  border-radius: 10px;
+  background-color: gray;
+}
