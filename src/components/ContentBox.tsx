@@ -99,13 +99,19 @@ export default function ContentBox({
     /* This is optional. The dragPreview will be attached to the dragSource by default */
     <div
       ref={ref}
-      className={`relative flex flex-col column row-span-${gridRowSpan} col-span-${gridColSpan} bg-gray-300 rounded-lg shadow-md overflow-hidden`} //{styles.box} //
+      className={`relative flex flex-col column row-span-${gridRowSpan} col-span-${gridColSpan} bg-gray-300 shadow-md 
+      }`} //{styles.box} //
       style={{
-        opacity: isDragging ? 0.5 : 1,
+        opacity: isDragging || isResizing ? 0.5 : 1,
         gridColumn: `auto/span ${gridColSpan}`,
         gridRow: `auto/span ${gridRowSpan}`,
       }}
     >
+      <div
+        className={`absolute w-full h-full bg-blue-400 -z-10 ${
+          isResizing ? "animate-ping" : ""
+        }`}
+      ></div>
       <div className="bg-blue-500">
         <span>id는 {id} 입니다</span>
         <span>

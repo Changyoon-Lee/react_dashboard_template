@@ -54,7 +54,7 @@ function DashBoard({ children }: DashBoardProps) {
       const thresX = width / currentColSize;
       const thresY = hieght / currentRowSize;
       //   console.log(thresX, thresY);
-      if (Math.abs(x) > thresX || Math.abs(y) > thresY) {
+      if (true) {
         currentColSize += Math.round(x / thresX);
         currentRowSize += Math.round(y / thresY);
 
@@ -66,8 +66,8 @@ function DashBoard({ children }: DashBoardProps) {
         setBoxStates((prevState) => {
           let newState = { ...prevState };
           newState[id] = {
-            row: currentRowSize > 3 ? currentRowSize : 3,
-            col: currentColSize > 3 ? currentColSize : 3,
+            row: currentRowSize >= 3 ? currentRowSize : 3,
+            col: currentColSize >= 3 ? currentColSize : 3,
           };
           return newState;
         });
