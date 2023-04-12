@@ -6,11 +6,11 @@ interface LayoutProps {
 }
 function Layout({ children }: LayoutProps) {
   return (
-    <div className="relative bg-zinc-700 h-screen">
+    <div className="relative dark:bg-[--color-dark-800] h-screen">
       <Header />
       <div className="pt-16 bottom-0 h-full flex items-center p-2 space-x-1">
         <Nav />
-        <main className="dark:bg-zinc-800 p-5 h-full w-full text-lg dark:text-zinc-500 font-medium rounded-e-2xl">
+        <main className="dark:bg-[--color-dark-900] p-5 h-full w-full text-lg dark:text-[--text-dark-100] font-medium rounded-e-2xl">
           {children}
         </main>
       </div>

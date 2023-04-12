@@ -2,6 +2,7 @@ import ContentBox from "./ContentBox";
 import { useState } from "react";
 import styles from "./DashBoard.module.css";
 import { useDrop } from "react-dnd";
+import { SettingsIcon } from "../icons/SVGIcon";
 interface DashBoardProps {
   children?: React.ReactNode;
 }
@@ -48,26 +49,18 @@ function DashBoard({ children }: DashBoardProps) {
       monitor
     ): void => {
       const XYcoord = monitor.getDifferenceFromInitialOffset();
-
       const { x, y } = XYcoord || { x: 0, y: 0 };
-      // console.log(width, hieght);
       const thresX = width / currentColSize;
       const thresY = hieght / currentRowSize;
-      //   console.log(thresX, thresY);
       if (true) {
         currentColSize += Math.round(x / thresX);
         currentRowSize += Math.round(y / thresY);
 
-        // let newState = { ...boxStates };
-        // newState[id] = {
-        //   row: currentRowSize > 3 ? currentRowSize : 3,
-        //   col: currentColSize > 3 ? currentColSize : 3,
-        // };
         setBoxStates((prevState) => {
           let newState = { ...prevState };
           newState[id] = {
-            row: currentRowSize >= 3 ? currentRowSize : 3,
-            col: currentColSize >= 3 ? currentColSize : 3,
+            row: currentRowSize >= 2 ? currentRowSize : 2,
+            col: currentColSize >= 2 ? currentColSize : 2,
           };
           return newState;
         });
@@ -80,6 +73,7 @@ function DashBoard({ children }: DashBoardProps) {
     <div className="p-5 space-y-5">
       <div>{order.join(" ")}</div>
       <div>{JSON.stringify(boxStates)}</div>
+      <SettingsIcon color="white" />
       <div className={styles.grid} ref={connectResizeDrop}>
         {order.map((i, index) => (
           <ContentBox

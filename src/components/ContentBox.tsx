@@ -99,30 +99,32 @@ export default function ContentBox({
     /* This is optional. The dragPreview will be attached to the dragSource by default */
     <div
       ref={ref}
-      className={`relative flex flex-col column row-span-${gridRowSpan} col-span-${gridColSpan} bg-gray-300 shadow-md 
-      }`} //{styles.box} //
+      className="flex flex-col relative p-4 border dark:border-[--border-dark-800] rounded-lg bg-gray-300 dark:bg-[--color-dark-800] shadow-md overflow-hidden"
       style={{
         opacity: isDragging || isResizing ? 0.5 : 1,
         gridColumn: `auto/span ${gridColSpan}`,
         gridRow: `auto/span ${gridRowSpan}`,
       }}
     >
+      {/* for animation */}
       <div
-        className={`absolute w-full h-full bg-blue-400 -z-10 ${
-          isResizing ? "animate-ping" : ""
+        className={`absolute top-0 left-0 w-full h-full bg-blue-400 -z-10 ${
+          isDragging || isResizing ? "animate-ping" : ""
         }`}
       ></div>
-      <div className="bg-blue-500">
+      {/* Title */}
+      <div className="flex justify-between items-center absolute top-0 left-0 right-0 p-2 hover:bg-blue-500 text-sm text-[--text-dark-300]">
         <span>id는 {id} 입니다</span>
         <span>
           width: {width} height: {hieght}
         </span>
       </div>
-      <div className="bg-red-200 opacity-50 w-10 h-10"></div>
-      <div>
+      {/* Contents */}
+      <div className="mt-5">
         index는 {index}{" "}
         {isResizing ? `${gridRowSpan || 3} x ${gridColSpan || 3}` : ""}
       </div>
+      {/* button for resizing */}
       <div
         className="absolute bottom-0 right-0 w-0 h-0 border-[10px] border-black border-t-transparent border-l-transparent cursor-nw-resize"
         ref={connectResize}

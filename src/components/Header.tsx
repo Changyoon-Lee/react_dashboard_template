@@ -20,7 +20,7 @@ function Header() {
     setTheme(newTheme);
   };
   return (
-    <header className="absolute top-0 left-0 right-0 flex justify-around items-center h-14 bg-gray-200 dark:bg-zinc-800 text-lg text-gray-800 dark:text-white font-bold">
+    <header className="absolute top-0 left-0 right-0 flex justify-around items-center h-14 bg-gray-200 dark:bg-[--color-dark-950] text-lg text-gray-800 dark:text-white font-bold">
       <span>menu1</span>
       <span>menu2</span>
       <span>menu3</span>
